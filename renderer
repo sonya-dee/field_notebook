@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let intervalId = null;
 
   const notesEl = document.getElementById('notes');
+  const imageUpload = document.getElementById('imageUpload');
   const entryDisplay = document.getElementById('entryDisplay');
 
 // Display First Entry
@@ -65,3 +66,93 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     };
 })
+
+// Insert Inline Link
+  window.insertInlineLink = function () {
+    const selection = window.getSelection();
+    if (!selection.rangeCount || selection.isCollapsed) {
+      alert("Please highlight text inside the notes to turn into a link.");
+      return;
+    }
+
+
+    const range = selection.getRangeAt(0);
+    if (!notesEl.contains(range.commonAncestorContainer)) {
+      alert("Selected text must be inside the Notes section.");
+      return;
+    }
+
+
+    const url = prompt("Enter the URL:");
+    if (!url) return;
+
+
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.target = "_blank";
+    anchor.rel = "noopener noreferrer";
+
+
+    const selectedText = range.extractContents();
+    anchor.appendChild(selectedText);
+    range.insertNode(anchor);
+
+
+    range.setStartAfter(anchor);
+    range.setEndAfter(anchor);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  };
+
+  // Image Upload
+  imageUpload.addEventListener('change', function () {
+    const file = this.files[0];
+    if (!file) return;
+
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.classList.add('uploaded');
+      insertImageAtCursor(img);
+    };
+    reader.readAsDataURL(file);
+    this.value = '';
+  });
+
+
+  function insertImageAtCursor(imageElement) {
+    const selection = window.getSelection();
+    if (!selection.rangeCount) return;
+    const range = selection.getRangeAt(0);
+    range.deleteContents();
+    range.insertNode(imageElement);
+    range.setStartAfter(imageElement);
+    range.setEndAfter(imageElement);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+
+// Prevent new <div> on Enter in contenteditable
+  notesEl.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      document.execCommand('insertHTML', false, '<br><br>');
+    }
+  });
+
+// Text Formatting
+  window.formatText = function (command) {
+    document.execCommand(command, false, null);
+  };
+
+// Open external links in browser
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target.tagName === 'A' && target.href.startsWith('http')) {
+      event.preventDefault();
+      const { shell } = require('electron');
+      shell.openExternal(target.href);
+    }
+  });

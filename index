@@ -10,20 +10,30 @@
         <!--- Field Notebook -->
         <div id="field">
             <h2>Field Notebook</h2>
-
+            
             <input type="date" id="date" required />
             <input type="text" id="weather" placeholder="Weather" required />
             <input type="text" id="location" placeholder="Location" required />
 
+    <!-- Inline Link Toolbar Button -->
+    <div class="toolbar">
+        <button type="button" onclick="formatText('bold')"><strong>B</strong></button>
+        <button type="button" onclick="formatText('italic')"><em>I</em></button>
+        <button type="button" onclick="formatText('underline')"><u>U</u></button>
+        <button type="button" onclick="insertInlineLink()">🔗</button>
+        <button type="button" onclick="document.getElementById('imageUpload').click()">📷</button>
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+    </div>
+
             <!-- Note Area Proper -->
              <div id="notes" contenteditable="true" style="min-height: 100px; background-color: var(--earth); color: white;"></div>
 
-             <!-- Save/Delete Button -->
+            <!-- Save/Delete Button -->
               <button onclick="saveEntry()">Save Entry</button>
               <button onclick="deleteEntry()">Delete</button>
 
-        <!--- Entry Display -->
-              <div class="entry-display" id="entryDisplay">No entries yet.</div>
+    <!--- Entry Display -->
+    <div class="entry-display" id="entryDisplay">No entries yet.</div>
       <button onclick="prevEntry()">⟵ Back</button>
       <button onclick="nextEntry()">Next ⟶</button>
       <button type="button" class="delete-btn" onclick="deleteEntry()">Delete</button>

@@ -66,3 +66,71 @@ button {
     margin-top: 8px;
     align-content: end;
 }
+
+#entryDisplay {
+  background-color: var(--earth);
+}
+
+#entryDisplay div {
+  background-color: var(--);
+}
+
+form {
+  padding:10px;
+  margin-bottom:10px;
+  background-color: var(--rain);
+  margin-top: 8px;
+}
+
+#notes img.uploaded {
+  max-width: 300px; 
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+#entryDisplay img.uploaded {
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+#notes a {
+  color: var(--sky);
+  text-decoration: underline;
+}
+
+#entryDisplay a {
+  color: var(--sky);
+  text-decoration: underline;
+}
+
+.toolbar {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 8px;
+  border: solid,
+}
+
+.toolbar button {
+  background-color: var(--paper);
+  color: black;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 3px;
+}
+
+.toolbar button:hover {
+  background-color: var(--rain);
+  color: white;
+}
+
+.slideshow-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
