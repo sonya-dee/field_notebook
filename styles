@@ -1,0 +1,68 @@
+:root {
+    --earth: #7c4a0f;
+    --paper: #fff0db;
+    --rain: #7f886e;
+    --text: #2b2b2b;
+}
+
+body {
+    color: var(--paper); 
+    background-color: var(--paper);
+    font-family: 'Georgia', serif; 
+    margin: 0; 
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center
+}
+
+div {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: var(--rain);
+    border-radius: 5px;
+}
+
+textarea {
+    padding:20px;
+    align-items: center;
+    display: flex; 
+}
+
+#date {
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: var(--paper)
+}
+
+#weather {
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: var(--paper)
+}
+
+#location {
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: var(--paper)
+}
+
+#notes {
+  padding:20px;
+  margin-bottom:10px;
+  background-color: var(--earth)
+}
+
+button {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--paper);
+    margin-top: 8px;
+    align-content: end;
+}
