@@ -1,0 +1,16 @@
+# Ignore node modules
+node_modules/
+
+# Electron build output
+dist/
+out/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# npm lock files (optional)
+package-lock.json
