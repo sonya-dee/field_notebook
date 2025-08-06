@@ -21,3 +21,14 @@
              <!-- Save/Delete Button -->
               <button onclick="saveEntry()">Save Entry</button>
               <button onclick="deleteEntry()">Delete</button>
+
+        <!--- Entry Display -->
+              <div class="entry-display" id="entryDisplay">No entries yet.</div>
+      <button onclick="prevEntry()">⟵ Back</button>
+      <button onclick="nextEntry()">Next ⟶</button>
+      <button type="button" class="delete-btn" onclick="deleteEntry()">Delete</button>
+</div>
+</div>
+<script src="renderer.js"></script>
+</body>
+</html>

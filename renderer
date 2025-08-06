@@ -1,0 +1,67 @@
+document.addEventListener('DOMContentLoaded', () => {
+  let currentEntryIndex = 0;
+  let entries = JSON.parse(localStorage.getItem('fieldEntries')) || [];
+  let intervalId = null;
+
+  const notesEl = document.getElementById('notes');
+  const entryDisplay = document.getElementById('entryDisplay');
+
+// Display First Entry
+  if (entries.length > 0) {
+    displayEntry();
+  }
+
+// Save Entry
+  window.saveEntry = function () {
+    const entry = {
+      date: document.getElementById('date').value,
+      weather: document.getElementById('weather').value,
+      location: document.getElementById('location').value, 
+            notes: notesEl.innerHTML
+    };
+
+// Delete Entry
+  window.deleteEntry = function () {
+    if (entries.length === 0) return;
+
+    entries.splice(currentEntryIndex, 1);
+    localStorage.setItem('fieldEntries', JSON.stringify(entries));
+
+    if (currentEntryIndex >= entries.length) {
+      currentEntryIndex = entries.length - 1;
+    }
+
+    displayEntry();
+  };
+
+// Display Entry
+  function displayEntry() {
+    if (entries.length === 0 || currentEntryIndex < 0 || currentEntryIndex >= entries.length) {
+      entryDisplay.innerText = "No entries yet.";
+      return;
+    }
+
+    const entry = entries[currentEntryIndex];
+    entryDisplay.innerHTML = `
+      <p><strong>Date:</strong> ${entry.date}</p>
+      <p><strong>Weather:</strong> ${entry.weather}</p>
+      <p><strong>Location:</strong> ${entry.location}</p>
+      <div><strong>Notes:</strong><br>${entry.notes}</div>
+    `;
+  }
+
+// Display Navigation
+  window.prevEntry = function () {
+    if (entries.length === 0) return;
+    currentEntryIndex = (currentEntryIndex - 1 + entries.length) % entries.length;
+    displayEntry();
+  };
+
+
+  window.nextEntry = function () {
+    if (entries.length === 0) return;
+    currentEntryIndex = (currentEntryIndex + 1) % entries.length;
+    displayEntry();
+        };
+    };
+})
