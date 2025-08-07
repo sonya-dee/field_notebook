@@ -9,7 +9,7 @@
 - **Easy Note-Taking**  
   Quickly add, edit, and delete notes to document your observations.
 
-- 🖊**Content-Editable Notes**  
+- **Content-Editable Notes**  
   Seamlessly update and revise entries anytime.
 
 - **Intuitive UI**  
@@ -35,7 +35,7 @@ To run this app locally:
 git clone https://github.com/sonya-dee/field_notebook.git
 
 # 2. Navigate into the project folder
-cd field-notebook
+cd field_notebook
 
 # 3. Install dependencies
 npm install
