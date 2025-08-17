@@ -6,14 +6,8 @@
 
 ## Features
 
-- **Easy Note-Taking**  
-  Quickly add, edit, and delete notes to document your observations.
-
 - **Content-Editable Notes**  
-  Seamlessly update and revise entries anytime.
-
-- **Intuitive UI**  
-  Clean, minimal, and distraction-free interface to help you focus on nature, not buttons.
+  Update and revise entries anytime.
 
 - **Save & Delete Controls**  
   Keep full control over your entries with clearly visible save and delete buttons.
@@ -22,7 +16,7 @@
 
 ## Why I Built This
 
-This project started as an assignment for one of my ecology classes. I wanted a way to blend the **photos** I took on my phone/digital camera with the **notes** I jotted down in the field — something lightweight, easy to use, and purpose-built for environmental fieldwork.
+This project started as an assignment for one of my ecology classes. I wanted a way to blend the **photos** I took on my phone/digital camera with the **notes** I jotted down in the field — purpose-built for environmental fieldwork.
 
 ---
 
