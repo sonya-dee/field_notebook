@@ -1,4 +1,31 @@
+// Field Notebook Script //
+
+// v2 Addition - Switching Themes **//
 document.addEventListener('DOMContentLoaded', () => {
+  const themeSelect = document.getElementById('themeSelect');
+
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    themeSelect.value = savedTheme;
+    if (savedTheme !== 'default') {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }
+
+  themeSelect.addEventListener('change', function () {
+    const selectedTheme = themeSelect.value;
+
+    if (selectedTheme === 'default') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', selectedTheme);
+    }
+
+    localStorage.setItem('theme', selectedTheme);
+  });
+
   let currentEntryIndex = 0;
   let entries = JSON.parse(localStorage.getItem('fieldEntries')) || [];
   let intervalId = null;
@@ -18,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
       date: document.getElementById('date').value,
       weather: document.getElementById('weather').value,
       location: document.getElementById('location').value, 
-            notes: notesEl.innerHTML
+        notes: notesEl.innerHTML
     };
 
 // Delete Entry
@@ -51,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
-// Display Navigation
+// Entry Display Navigation
   window.prevEntry = function () {
     if (entries.length === 0) return;
     currentEntryIndex = (currentEntryIndex - 1 + entries.length) % entries.length;
@@ -156,3 +183,5 @@ document.addEventListener('DOMContentLoaded', () => {
       shell.openExternal(target.href);
     }
   });
+
+  

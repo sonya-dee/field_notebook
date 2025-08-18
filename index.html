@@ -1,44 +1,50 @@
 <!DOCTYPE html> 
 <html lang="en">
     <head>
-        <meta charset="UTF=8" />
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial scale=1" />
         <link rel="stylesheet" href ="styles.css">
     </head>
+
     <body>
+    <label for="themeSelect">Theme:</label>
+        <select id="themeSelect">
+            <option value="default">Default</option>
+            <option value="dark">Dark</option>
+            <option value="sepia">Sepia</option>
+            <option value="forest">Forest</option>
+        </select>
 
         <!--- Field Notebook -->
-        <div id="field">
-            <h2>Field Notebook</h2>
-            
-            <input type="date" id="date" required />
-            <input type="text" id="weather" placeholder="Weather" required />
-            <input type="text" id="location" placeholder="Location" required />
-
-    <!-- Inline Link Toolbar Button -->
-    <div class="toolbar">
-        <button type="button" onclick="formatText('bold')"><strong>B</strong></button>
-        <button type="button" onclick="formatText('italic')"><em>I</em></button>
-        <button type="button" onclick="formatText('underline')"><u>U</u></button>
-        <button type="button" onclick="insertInlineLink()">🔗</button>
-        <button type="button" onclick="document.getElementById('imageUpload').click()">📷</button>
-        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+    <div id="field">
+        <h2>Field Notebook</h2>  
+        <input type="date" id="date" required />
+        <input type="text" id="weather" placeholder="Weather" required />
+        <input type="text" id="location" placeholder="Location" required />
     </div>
+    <!-- Inline Link Toolbar Button -->
+        <div class="toolbar">
+            <button type="button" onclick="formatText('bold')"><strong>B</strong></button>
+            <button type="button" onclick="formatText('italic')"><em>I</em></button>
+            <button type="button" onclick="formatText('underline')"><u>U</u></button>
+            <button type="button" onclick="insertInlineLink()">🔗</button>
+            <button type="button" onclick="document.getElementById('imageUpload').click()">📷</button>
+            <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        </div>
 
             <!-- Note Area Proper -->
-             <div id="notes" contenteditable="true" style="min-height: 100px; background-color: var(--earth); color: white;"></div>
+    <div id="notes" contenteditable="true" style="min-height: 100px;"></div>
 
             <!-- Save/Delete Button -->
-              <button onclick="saveEntry()">Save Entry</button>
-              <button onclick="deleteEntry()">Delete</button>
+        <button onclick="saveEntry()">Save Entry</button>
+        <button onclick="deleteEntry()">Delete</button>
 
     <!--- Entry Display -->
     <div class="entry-display" id="entryDisplay">No entries yet.</div>
       <button onclick="prevEntry()">⟵ Back</button>
       <button onclick="nextEntry()">Next ⟶</button>
       <button type="button" class="delete-btn" onclick="deleteEntry()">Delete</button>
-</div>
-</div>
+
 <script src="renderer.js"></script>
 </body>
 </html>

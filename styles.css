@@ -1,17 +1,43 @@
 :root {
-    --earth: #7c4a0f;
-    --paper: #fff0db;
-    --rain: #7f886e;
-    --text: #2b2b2b;
+  --background-color: #fff0db;
+  --text-color: #2b2b2b;
+  --card-background: #7f886e;
+  --note-background: #7c4a0f;
+  --link-color: #0077cc;
 }
 
+html[data-theme="dark"] {
+  --background-color: #333333;
+  --text-color: #ffffff;
+  --card-background: #444444;
+  --note-background: #222222;
+  --link-color: #66ccff;
+}
+
+html[data-theme="sepia"] {
+  --background-color: #f4ecd8;
+  --text-color: #5b4636;
+  --card-background: #d4c4a8;
+  --note-background: #a67c52;
+  --link-color: #914e1f;
+}
+
+html[data-theme="forest"] {
+  --background-color: #1b2e1b;
+  --text-color: #e0ffe0;
+  --card-background: #365b37;
+  --note-background: #2a4b2a;
+  --link-color: #88ff88;
+}
+
+
 body {
-    color: var(--paper); 
-    background-color: var(--paper);
-    font-family: 'Georgia', serif; 
-    margin: 0; 
-    padding: 2rem;
-    line-height: 1.6;
+  color: var(--text-color); 
+  background-color: var(--background-color); 
+  font-family: 'Georgia', serif; 
+  margin: 0; 
+  padding: 2rem;
+  line-height: 1.6;
 }
 
 h1 {
@@ -25,7 +51,7 @@ h2 {
 div {
     padding: 20px;
     margin-top: 20px;
-    background-color: var(--rain);
+    background-color: var(--background-color);
     border-radius: 5px;
 }
 
@@ -33,52 +59,56 @@ textarea {
     padding:20px;
     align-items: center;
     display: flex; 
+    background-color: var(--card-background);
+    color: var(--text-color);
+
 }
 
 #date {
     padding: 8px;
     margin-bottom: 10px;
-    background-color: var(--paper)
+    background-color: var(--background-color)
 }
 
 #weather {
     padding: 8px;
     margin-bottom: 10px;
-    background-color: var(--paper)
+    background-color: var(--background-color)
 }
 
 #location {
     padding: 8px;
     margin-bottom: 10px;
-    background-color: var(--paper)
+    background-color: var(--background-color)
 }
 
 #notes {
   padding:20px;
   margin-bottom:10px;
-  background-color: var(--earth)
+  background-color: var(--card-background);
+  color: var(--text-color);
 }
 
 button {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: var(--paper);
+    background-color: var(--background-color);
     margin-top: 8px;
     align-content: end;
 }
 
 #entryDisplay {
-  background-color: var(--earth);
+  background-color: var(--card-background);
 }
 
 #entryDisplay div {
-  background-color: var(--);
+  background-color: var(--card-background);
 }
 
 form {
   padding:10px;
   margin-bottom:10px;
-  background-color: var(--rain);
+  background-color: var(--note-background);
   margin-top: 8px;
 }
 
@@ -97,16 +127,17 @@ form {
 }
 
 #notes a {
-  color: var(--sky);
+  color: var(--card-background);
   text-decoration: underline;
 }
 
 #entryDisplay a {
-  color: var(--sky);
+  color: var(--card-background);
   text-decoration: underline;
 }
 
 .toolbar {
+  background-color: var(--card-background);
   margin-top: 5px;
   margin-bottom: 10px;
   display: flex;
@@ -115,7 +146,7 @@ form {
 }
 
 .toolbar button {
-  background-color: var(--paper);
+  background-color: var(--background-color);
   color: black;
   border: none;
   padding: 6px 12px;
@@ -125,7 +156,7 @@ form {
 }
 
 .toolbar button:hover {
-  background-color: var(--rain);
+  background-color: var(--link-color);
   color: white;
 }
 
