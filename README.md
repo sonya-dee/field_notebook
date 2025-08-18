@@ -3,6 +3,10 @@
 **Field Notebook** is crafted for environmental science students and nature-lovers alike. Whether you're reflecting on a daily hike or collecting data during field work, this app keeps your notes organized, editable, and accessible.
 
 ---
+## Preview 
+<img width="933" height="963" alt="Screenshot 2025-08-17 at 21-07-12 " src="https://github.com/user-attachments/assets/502486f0-fcde-4706-bb96-c0a50de6e8ad" />
+
+---
 
 ## Features
 
