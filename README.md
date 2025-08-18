@@ -16,6 +16,12 @@
 - **Save & Delete Controls**  
   Keep full control over your entries with clearly visible save and delete buttons.
 
+*New Features to appear in V2*
+- Original Pixelated Imagery
+- A Location Text Entry
+- Option to Revize Notes after Saving
+- Option to Toggle Light and Dark Themes
+
 ---
 
 ## Why I Built This
