@@ -26,7 +26,7 @@
 
 ## Why I Built This
 
-This project started as an assignment for one of my ecology classes. I wanted a way to blend the **photos** I took on my phone/digital camera with the **notes** I jotted down in the field — purpose-built for environmental fieldwork.
+This project started as an assignment for one of my ecology classes. I wanted a way to blend the **photos** I took on my phone/digital camera with the **notes** I jotted down in the field, purpose-built for environmental fieldwork.
 
 ---
 
