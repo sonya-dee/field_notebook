@@ -1,7 +1,11 @@
-// One Document.addEventListener - Document is Called to Load Once 
+/* DOM loaded event to ensure all elements are available before running scripts
 
-// the DOM is Fully Loaded
+This script handles the theme selection, entry management, and inline link insertion
+for a field notebook application. It uses localStorage to persist entries and themes.
+The script is designed to work in an Electron environment but can also run in modern browsers
+with some adjustments for external link handling. */
 
+// Theme selection and application 
 document.addEventListener('DOMContentLoaded', () => {
   const themeSelect = document.getElementById('themeSelect');
   const savedTheme = localStorage.getItem('theme');
@@ -24,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     localStorage.setItem('theme', selectedTheme);
   });
+
+  /* Entry management and display
+  This section handles the creation, deletion, and navigation of field notebook entries.
+  It uses localStorage to persist entries and allows for inline link insertion and image uploads. */
 
   let currentEntryIndex = 0;
   let entries = JSON.parse(localStorage.getItem('fieldEntries')) || [];
@@ -70,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayEntry();
   };
 
+  // Delete Current Entry
   window.deleteEntry = function () {
     if (entries.length === 0) return;
 
@@ -83,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayEntry();
   };
 
+  // Navigation through entries
   window.prevEntry = function () {
     if (entries.length === 0) return;
     currentEntryIndex = (currentEntryIndex - 1 + entries.length) % entries.length;
