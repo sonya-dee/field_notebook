@@ -165,3 +165,11 @@ form {
   justify-content: space-between;
   margin-top: 15px;
 }
+
+#themeSelect {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--background-color);
+    margin-top: 8px;
+    align-content: end;
+}
