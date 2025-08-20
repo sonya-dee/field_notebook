@@ -6,18 +6,21 @@
         <link rel="stylesheet" href ="styles.css">
     </head>
 
-    <body>
+    <h1>Field Notebook</h1>
 
-        <select id="themeSelect">
-            <option value="default">Default</option>
-            <option value="dark">Dark</option>
-            <option value="sepia">Sepia</option>
-            <option value="forest">Forest</option>
-        </select>
+    <div class="toolbar2">
+            <select id="themeSelect">
+                <option value="default">Default</option>
+                <option value="dark">Dark</option>
+                <option value="sepia">Sepia</option>
+                <option value="forest">Forest</option>
+                <option value="autumn">Autumn</option>
+             </select>
+    </div>
+    <body>
 
         <!--- Field Notebook -->
     <div id="field">
-        <h2>Field Notebook</h2>  
         <input type="date" id="date" required />
         <input type="text" id="weather" placeholder="Weather" required />
         <input type="text" id="location" placeholder="Location" required />
@@ -30,8 +33,21 @@
             <button type="button" onclick="insertInlineLink()">🔗</button>
             <button type="button" onclick="document.getElementById('imageUpload').click()">📷</button>
             <input type="file" id="imageUpload" accept="image/*" style="display: none;">
-        </select>
-        </div>
+            <select id="fontSizeSelect" onchange="changeFontSize()">
+                <option value="12px">12</option>
+                <option value="14px">14</option>
+                <option value="16px">16</option>
+                <option value="20px">20</option>
+            </select>
+            <select id="fontStyleSelect" class="input" onchange="changeFontStyle()">
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <opti0n value="Calibri">Calibri</optin>
+                <option value="Arial">Arial</option>
+                <option value="Times">Times</option>
+                <option value="Cursive">Cursive</option>
+            </select>
+            </div>
 
             <!-- Note Area Proper -->
     <div id="notes" contenteditable="true" style="min-height: 100px;"></div>

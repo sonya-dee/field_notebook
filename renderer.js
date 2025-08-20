@@ -1,3 +1,5 @@
+/* Field Notebook Renderer Script */
+
 /* DOM loaded event to ensure all elements are available before running scripts
 
 This script handles the theme selection, entry management, and inline link insertion
@@ -180,4 +182,31 @@ document.addEventListener('DOMContentLoaded', () => {
       window.open(target.href, '_blank', 'noopener,noreferrer');
     }
   });
+
+// Font size adjustment
+function changeFontSize() {
+  const fontSizeSelect = document.getElementById('fontSizeSelect');
+  const notesEl = document.getElementById('notes');
+  const selectedSize = fontSizeSelect.value;
+  notesEl.style.fontSize = selectedSize;
+  localStorage.setItem('fontSize', selectedSize);
+}
+  const savedFontSize = localStorage.getItem('fontSize') || '16px';
+  document.getElementById('notes').style.fontSize = savedFontSize;
+  document.getElementById('fontSizeSelect').value = savedFontSize;
+  document.getElementById('fontSizeSelect').addEventListener('change', changeFontSize);
+
+  // Font Style Adjustment
+function changeFontStyle() {
+    var myselect = document.getElementById("fontStyleSelect");
+    var font = myselect.options[myselect.selectedIndex].value;
+    document.getElementById('notes').style.fontFamily = font;
+    localStorage.setItem('fontFamily', font);
+}
+
+  const savedFontFamily = localStorage.getItem('fontFamily') || 'Georgia';
+  document.getElementById('notes').style.fontFamily = savedFontFamily;
+  document.getElementById('fontStyleSelect').value = savedFontFamily;
+  document.getElementById('fontStyleSelect').addEventListener('change', changeFontStyle);
 });
+

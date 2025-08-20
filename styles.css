@@ -1,11 +1,16 @@
+/* Field Notebook Stylesheet */
+
+/* Default Theme Variables */
+
 :root {
   --background-color: #fff0db;
-  --text-color: #2b2b2b;
+  --text-color: #262626;
   --card-background: #7f886e;
   --note-background: #7c4a0f;
-  --link-color: #0077cc;
+  --link-color: #66ccff;
 }
 
+/* Dark Theme Variables */
 html[data-theme="dark"] {
   --background-color: #333333;
   --text-color: #ffffff;
@@ -14,6 +19,7 @@ html[data-theme="dark"] {
   --link-color: #66ccff;
 }
 
+/* Sepia Theme Variables */
 html[data-theme="sepia"] {
   --background-color: #f4ecd8;
   --text-color: #5b4636;
@@ -22,6 +28,7 @@ html[data-theme="sepia"] {
   --link-color: #914e1f;
 }
 
+/* Forest Theme Variables */
 html[data-theme="forest"] {
   --background-color: #1b2e1b;
   --text-color: #e0ffe0;
@@ -30,7 +37,28 @@ html[data-theme="forest"] {
   --link-color: #88ff88;
 }
 
+/* Autumn Theme Variables */
+html[data-theme="autumn"] {
+  --background-color: #ffe6a7;
+  --text-color: #421818;
+  --card-background: #99582a;
+  --note-background: #8c5b3e;
+  --link-color: #421818;
+}
 
+
+/* Theme Selector Styles */
+#themeSelect {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    margin-top: 8px;
+    align-content: end;
+    border-radius: 10px;
+}
+
+/* General Styles */
 body {
   color: var(--text-color); 
   background-color: var(--background-color); 
@@ -64,22 +92,29 @@ textarea {
 
 }
 
+/* Specific Element Styles */
 #date {
     padding: 8px;
     margin-bottom: 10px;
-    background-color: var(--background-color)
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border-radius: 10px;
 }
 
 #weather {
     padding: 8px;
     margin-bottom: 10px;
-    background-color: var(--background-color)
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border-radius: 10px;
 }
 
 #location {
     padding: 8px;
     margin-bottom: 10px;
-    background-color: var(--background-color)
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border-radius: 10px;
 }
 
 #notes {
@@ -89,22 +124,27 @@ textarea {
   color: var(--text-color);
 }
 
+/* Styling for buttons */
 button {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: var(--background-color);
+    background-color: var(--text-color);
     margin-top: 8px;
     align-content: end;
+    color: var(--background-color);
+    border-radius: 10px;
 }
 
+/* Entry Display Styles */
 #entryDisplay {
-  background-color: var(--card-background);
+  background-color: var(--background-color);
 }
 
 #entryDisplay div {
   background-color: var(--card-background);
 }
 
+/* Form Styles */
 form {
   padding:10px;
   margin-bottom:10px;
@@ -112,6 +152,7 @@ form {
   margin-top: 8px;
 }
 
+/* Image and Link Styles */
 #notes img.uploaded {
   max-width: 300px; 
   height: auto;
@@ -136,6 +177,7 @@ form {
   text-decoration: underline;
 }
 
+/* Toolbar Styles */
 .toolbar {
   background-color: var(--card-background);
   margin-top: 5px;
@@ -147,7 +189,7 @@ form {
 
 .toolbar button {
   background-color: var(--background-color);
-  color: black;
+  color: var(--text-color);
   border: none;
   padding: 6px 12px;
   border-radius: 5px;
@@ -160,16 +202,40 @@ form {
   color: white;
 }
 
+.toolbar2 {
+  background-color: var(--note-background);
+  margin-top: 1px;
+  margin-bottom: 1px;
+  display: flex;
+  gap: 1px;
+  border: solid,
+}
+
+/* Slideshow Navigation Styles */
 .slideshow-nav {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
 }
 
-#themeSelect {
+/* Font Size Selector */
+#fontSizeSelect {
     padding: 10px;
     margin-bottom: 10px;
     background-color: var(--background-color);
+    color: var(---text-color);
     margin-top: 8px;
     align-content: end;
+    border-radius: 10px;
+}
+
+/* Font Style Selector */
+#fontStyleSelect {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin-top: 8px;
+  align-content: end;
+  border-radius: 10px;
 }
