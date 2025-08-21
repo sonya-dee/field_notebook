@@ -9,13 +9,13 @@
     <h1>Field Notebook</h1>
 
     <div class="toolbar2">
-            <select id="themeSelect">
-                <option value="default">Default</option>
-                <option value="dark">Dark</option>
-                <option value="sepia">Sepia</option>
-                <option value="forest">Forest</option>
-                <option value="autumn">Autumn</option>
-             </select>
+        <select id="themeSelect">
+            <option value="default">Default</option>
+            <option value="dark">Dark</option>
+            <option value="sepia">Sepia</option>
+            <option value="forest">Forest</option>
+            <option value="autumn">Autumn</option>
+        </select>
     </div>
     <body>
 
@@ -25,6 +25,8 @@
         <input type="text" id="weather" placeholder="Weather" required />
         <input type="text" id="location" placeholder="Location" required />
     </div>
+
+
     <!-- Inline Link Toolbar Button -->
         <div class="toolbar">
             <button type="button" onclick="formatText('bold')"><strong>B</strong></button>
@@ -33,12 +35,14 @@
             <button type="button" onclick="insertInlineLink()">🔗</button>
             <button type="button" onclick="document.getElementById('imageUpload').click()">📷</button>
             <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+            <!-- Font Size Select -->
             <select id="fontSizeSelect" onchange="changeFontSize()">
                 <option value="12px">12</option>
                 <option value="14px">14</option>
                 <option value="16px">16</option>
                 <option value="20px">20</option>
             </select>
+             <!-- Font Size Style Select -->
             <select id="fontStyleSelect" class="input" onchange="changeFontStyle()">
                 <option value="Georgia">Georgia</option>
                 <option value="Times New Roman">Times New Roman</option>
@@ -49,13 +53,14 @@
             </select>
             </div>
 
-            <!-- Note Area Proper -->
+    <!-- Note Area Proper -->
     <div id="notes" contenteditable="true" style="min-height: 100px;"></div>
 
-            <!-- Save/Delete Button -->
-        <button onclick="saveEntry()">Save Entry</button>
-        <button onclick="deleteEntry()">Delete</button>
+    <!-- Save/Delete Button -->
+    <button onclick="saveEntry()">Save Entry</button>
+    <button onclick="deleteEntry()">Delete</button>
 
+    
     <!--- Entry Display -->
     <div class="entry-display" id="entryDisplay">No entries yet.</div>
       <button onclick="prevEntry()">⟵ Back</button>

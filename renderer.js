@@ -183,30 +183,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-// Font size adjustment
+// Font Size Change 
 function changeFontSize() {
-  const fontSizeSelect = document.getElementById('fontSizeSelect');
   const notesEl = document.getElementById('notes');
-  const selectedSize = fontSizeSelect.value;
-  notesEl.style.fontSize = selectedSize;
-  localStorage.setItem('fontSize', selectedSize);
-}
-  const savedFontSize = localStorage.getItem('fontSize') || '16px';
-  document.getElementById('notes').style.fontSize = savedFontSize;
-  document.getElementById('fontSizeSelect').value = savedFontSize;
-  document.getElementById('fontSizeSelect').addEventListener('change', changeFontSize);
+  const fontSelect = document.getElementById('fontSizeSelect');
+  const font = fontSelect.value;
+  const selection = window.getSelection();
+  
+  if (!selection.rangeCount || selection.isCollapsed) return;
+  const range = selection.getRangeAt(0);
+  if (!notesEl.contains(range.commonAncestorContainer)) return; 
 
-  // Font Style Adjustment
-function changeFontStyle() {
-    var myselect = document.getElementById("fontStyleSelect");
-    var font = myselect.options[myselect.selectedIndex].value;
-    document.getElementById('notes').style.fontFamily = font;
-    localStorage.setItem('fontFamily', font);
+  const span = document.createElement('span');
+  span.style.fontSize = font;
+
+  span.appendChild(range.extractContents());
+  range.insertNode(span);
+
+  range.setStartAfter(span);
+  range.collapse(true);
+  selection.removeAllRanges();
+  selection.addRange(range);
 }
 
-  const savedFontFamily = localStorage.getItem('fontFamily') || 'Georgia';
-  document.getElementById('notes').style.fontFamily = savedFontFamily;
-  document.getElementById('fontStyleSelect').value = savedFontFamily;
+document.getElementById('fontSizeSelect').addEventListener('change', changeFontSize);
+
+// Font Style Change 
+function changeFontStyle () {
+  const notesEl = document.getElementById('notes');
+  const fontSelect = document.getElementById('fontStyleSelect');
+  const font = fontSelect.value;
+  const selection = window.getSelection();
+
+  // Ensure selection is inside and not collapsed
+  if (!selection.rangeCount || selection.isCollapsed) return;
+  const range = selection.getRangeAt(0);
+  if (!notesEl.contains(range.commonAncestorContainer)) return;
+
+  // Create a span with the chosen font 
+  const span = document.createElement('span');
+  span.style.fontFamily = font; 
+
+  // Extract the selected contents and wrap them 
+  span.appendChild(range.extractContents());
+  range.insertNode(span);
+
+  // Move Cursor after the inserted span
+  range.setStartAfter(span);
+  range.collapse(true);
+  selection.removeAllRanges();
+  selection.addRange(range);
+}
   document.getElementById('fontStyleSelect').addEventListener('change', changeFontStyle);
+
 });
+
+
+
+
+
+
+
+
+
+
+
 
